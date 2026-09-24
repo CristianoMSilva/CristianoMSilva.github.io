@@ -3,10 +3,244 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cristiano Marques Silva</title>
+  <title>Cristiano Marques Silva | Portfolio</title>
+
+  <!-- ESTILO (CSS): define cores, fontes e espaçamentos da página -->
+  <style>
+    :root {
+      --bg: #0d1117;        /* fundo principal (quase preto) */
+      --card: #161b22;      /* fundo dos cartões */
+      --border: #30363d;    /* bordas */
+      --text: #e6edf3;      /* texto principal */
+      --muted: #8b949e;     /* texto secundário */
+      --accent: #3fb950;    /* verde "terminal" */
+      --accent2: #39c5cf;   /* ciano */
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+    /* Menu do topo */
+    nav {
+      position: sticky; top: 0;
+      background: rgba(13, 17, 23, 0.95);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .container {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 14px; padding-bottom: 14px; flex-wrap: wrap; gap: 10px;
+    }
+    .logo { font-family: Consolas, monospace; color: var(--accent); font-weight: bold; }
+    nav a { color: var(--muted); text-decoration: none; margin-left: 16px; font-size: 0.95rem; }
+    nav a:hover { color: var(--accent2); }
+
+    /* Seção de apresentação */
+    header { padding: 80px 0 60px; }
+    .terminal { font-family: Consolas, monospace; color: var(--accent); margin-bottom: 12px; }
+    h1 { font-size: 2.6rem; line-height: 1.2; }
+    .subtitle { color: var(--accent2); font-size: 1.15rem; margin: 10px 0 24px; }
+
+    .btn {
+      display: inline-block; padding: 10px 20px; margin: 0 10px 10px 0;
+      border: 1px solid var(--accent); border-radius: 6px;
+      color: var(--accent); text-decoration: none; font-weight: 600;
+    }
+    .btn:hover { background: var(--accent); color: var(--bg); }
+
+    /* Seções */
+    section { padding: 50px 0; border-top: 1px solid var(--border); }
+    h2 { font-family: Consolas, monospace; color: var(--accent); margin-bottom: 24px; font-size: 1.5rem; }
+    h2::before { content: "> "; color: var(--muted); }
+    p { margin-bottom: 14px; }
+
+    /* Cartões (projetos, experiência etc.) */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px;
+    }
+    .card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: 0.95rem; }
+    .card a { color: var(--accent2); text-decoration: none; margin-right: 14px; font-size: 0.9rem; }
+    .card a:hover { text-decoration: underline; }
+    .date { color: var(--muted); font-size: 0.85rem; font-family: Consolas, monospace; }
+
+    .tags { margin: 10px 0 12px; }
+    .tag {
+      display: inline-block; font-size: 0.78rem; font-family: Consolas, monospace;
+      color: var(--accent); border: 1px solid var(--border);
+      border-radius: 20px; padding: 2px 10px; margin: 0 6px 6px 0;
+    }
+
+    ul.list { list-style: none; }
+    ul.list li { padding: 8px 0; border-bottom: 1px solid var(--border); }
+    ul.list li::before { content: "✓ "; color: var(--accent); }
+
+    footer { text-align: center; color: var(--muted); padding: 30px 0; border-top: 1px solid var(--border); font-size: 0.85rem; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      nav a { margin-left: 10px; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Cristiano Marques Silva</h1>
-  <p>Computer Science Student | Software Engineering | Cybersecurity</p>
+
+  <!-- MENU DO TOPO -->
+  <nav>
+    <div class="container">
+      <span class="logo">cristiano@portfolio:~$</span>
+      <div>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- APRESENTAÇÃO -->
+  <header class="container">
+    <p class="terminal">$ whoami</p>
+    <h1>Cristiano Marques Silva</h1>
+    <p class="subtitle">Computer Science Student | AI &amp; Cybersecurity | Software Engineering</p>
+    <a class="btn" href="#projects">View projects</a>
+    <a class="btn" href="https://github.com/CristianoMSilva" target="_blank">GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/cristiano-marques-silva/" target="_blank">LinkedIn</a>
+  </header>
+
+  <!-- SOBRE MIM -->
+  <section id="about">
+    <div class="container">
+      <h2>About me</h2>
+      <p>I'm a final-year Computer Science student at UNESP (São Paulo State University), graduating in 2026. My journey in tech started in 2022 with a Computer Networks course at FATEC, and I enjoyed it so much that I moved on to Computer Science. Along the way, I also earned a technical degree in Systems Development.</p>
+      <p>Today my projects connect <strong>Artificial Intelligence and Cybersecurity</strong>: my final project is a real-time phishing detection system for banks using DistilBERT and Federated Learning, and I've built intrusion detection labs with Snort 3 and Suricata.</p>
+      <p>I adapt quickly, I'm dedicated, and I love learning new things. I'm looking for my first opportunity in Portugal, in software development, AI/ML, cybersecurity, networks or cloud.</p>
+      <p>Outside tech: brown belt in karate, national finalist in swimming, half marathon in 1h20, and BP Award (highest honor in the Rover Scouts). I also enjoy climbing and hiking.</p>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="grid">
+
+        <div class="card">
+          <h3>Real-time Phishing Detection for Banks</h3>
+          <p>Undergraduate final project: a system that detects phishing attempts against banking customers in near real time, using a DistilBERT language model trained with Federated Learning to preserve data privacy.</p>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">DistilBERT</span><span class="tag">Federated Learning</span><span class="tag">NLP</span>
+          </div>
+          <!-- Troque o "#" pelo link do repositório quando ele estiver público -->
+          <a href="#">Repository (coming soon)</a>
+        </div>
+
+        <div class="card">
+          <h3>IDS Lab with Suricata</h3>
+          <p>Intrusion detection lab with two Linux Mint virtual machines (target and attacker) on VirtualBox. Configured Suricata with custom rules to detect ICMP ping and three other types of network activity.</p>
+          <div class="tags">
+            <span class="tag">Suricata</span><span class="tag">IDS</span><span class="tag">VirtualBox</span><span class="tag">Linux</span>
+          </div>
+          <!-- Troque os "#" pelos links do vídeo e da documentação -->
+          <a href="#">Video</a><a href="#">Documentation</a>
+        </div>
+
+        <div class="card">
+          <h3>IDS Lab with Snort 3</h3>
+          <p>Intrusion detection lab using Snort 3 with a custom rule to detect ICMP ping traffic, tested in a virtualized attacker/target environment.</p>
+          <div class="tags">
+            <span class="tag">Snort 3</span><span class="tag">IDS</span><span class="tag">Network Security</span>
+          </div>
+          <a href="#">Video</a><a href="#">Documentation</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIÊNCIA E ATIVIDADES -->
+  <section id="experience">
+    <div class="container">
+      <h2>Experience &amp; Activities</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Proativa – UNESP Competitive Programming Team</h3>
+          <p>Member of the team that represents UNESP in programming competitions.</p>
+        </div>
+        <div class="card">
+          <h3>Teaching Assistant – Competitive Programming Lab</h3>
+          <p>Helped students with algorithms and problem solving at UNESP.</p>
+        </div>
+        <div class="card">
+          <h3>Volunteer – Programming Marathon (Regional)</h3>
+          <p>Supported the organization of the regional phase of the Brazilian Programming Marathon.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMAÇÃO -->
+  <section id="education">
+    <div class="container">
+      <h2>Education</h2>
+      <div class="grid">
+        <div class="card">
+          <p class="date">2023 – 2026</p>
+          <h3>B.Sc. Computer Science</h3>
+          <p>UNESP – São Paulo State University, Bauru</p>
+        </div>
+        <div class="card">
+          <!-- Coloque o ano certo aqui -->
+          <p class="date">Year</p>
+          <h3>Technical Degree in Systems Development</h3>
+          <p>ETEC, Bauru</p>
+        </div>
+        <div class="card">
+          <p class="date">2022</p>
+          <h3>Computer Networks (1 year)</h3>
+          <p>FATEC, Bauru</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICAÇÕES -->
+  <section id="certifications">
+    <div class="container">
+      <h2>Certifications</h2>
+      <!-- Troque pelos nomes exatos dos certificados -->
+      <ul class="list">
+        <li>AWS – certificate name</li>
+        <li>Cisco – certificate name</li>
+        <li>BluePex Essentials</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Open to opportunities in Portugal and remote roles. Feel free to reach out!</p>
+      <a class="btn" href="mailto:criscristimarsilva@gmail.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/cristiano-marques-silva/" target="_blank">LinkedIn</a>
+      <a class="btn" href="https://github.com/CristianoMSilva" target="_blank">GitHub</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Cristiano Marques Silva
+  </footer>
+
 </body>
 </html>
